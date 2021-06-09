@@ -20,6 +20,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { AutoBind } from "../decorators/auto-bind.js";
+import { projectState } from "../state/project-state.js";
 import { Component } from "./base-component.js";
 var ProjectInput = (function (_super) {
     __extends(ProjectInput, _super);
@@ -40,14 +41,16 @@ var ProjectInput = (function (_super) {
     ProjectInput.prototype.gatherUserInput = function () {
         var enteredTitle = this.titleElement.value;
         var enteredDescription = this.descriptionElement.value;
-        var enteredPeople = this.peopleElement.value;
-        console.log(enteredTitle, enteredDescription, enteredPeople);
+        var enteredPeople = +this.peopleElement.value;
+        projectState.addProject(enteredTitle, enteredDescription, enteredPeople);
     };
     ProjectInput.prototype.clearInput = function () {
         this.titleElement.value = "";
         this.descriptionElement.value = "";
         this.peopleElement.value = "";
     };
+    ProjectInput.prototype.configure = function () { };
+    ProjectInput.prototype.renderContent = function () { };
     __decorate([
         AutoBind
     ], ProjectInput.prototype, "onSubmit", null);

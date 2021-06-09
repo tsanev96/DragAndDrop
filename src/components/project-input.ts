@@ -1,4 +1,5 @@
 import { AutoBind } from "../decorators/auto-bind.js";
+import { projectState } from "../state/project-state.js";
 import { Component } from "./base-component.js";
 
 export class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
@@ -36,9 +37,9 @@ export class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
   private gatherUserInput() {
     const enteredTitle = this.titleElement.value;
     const enteredDescription = this.descriptionElement.value;
-    const enteredPeople = this.peopleElement.value;
+    const enteredPeople = +this.peopleElement.value;
 
-    console.log(enteredTitle, enteredDescription, enteredPeople);
+    projectState.addProject(enteredTitle, enteredDescription, enteredPeople);
   }
 
   private clearInput() {
@@ -46,4 +47,7 @@ export class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
     this.descriptionElement.value = "";
     this.peopleElement.value = "";
   }
+
+  configure() {}
+  renderContent() {}
 }
