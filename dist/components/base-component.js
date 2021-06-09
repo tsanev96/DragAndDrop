@@ -1,7 +1,8 @@
 var Component = (function () {
-    function Component(rootId, templateId, elementId) {
+    function Component(rootId, templateId, insertAtStart, elementId) {
         this.rootId = rootId;
         this.templateId = templateId;
+        this.insertAtStart = insertAtStart;
         this.elementId = elementId;
         this.rootElement = document.getElementById(rootId);
         this.templateElement = document.getElementById(templateId);
@@ -10,10 +11,10 @@ var Component = (function () {
         if (this.elementId) {
             this.element.id = this.elementId;
         }
-        this.attach();
+        this.attach(this.insertAtStart);
     }
-    Component.prototype.attach = function () {
-        this.rootElement.insertAdjacentElement("afterbegin", this.element);
+    Component.prototype.attach = function (insertAtStart) {
+        this.rootElement.insertAdjacentElement(insertAtStart ? "afterbegin" : "beforeend", this.element);
     };
     return Component;
 }());

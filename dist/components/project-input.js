@@ -24,7 +24,7 @@ import { Component } from "./base-component.js";
 var ProjectInput = (function (_super) {
     __extends(ProjectInput, _super);
     function ProjectInput() {
-        var _this = _super.call(this, "root", "project-input", "user-input") || this;
+        var _this = _super.call(this, "root", "project-input", true, "user-input") || this;
         _this.titleElement = _this.element.querySelector("#title");
         _this.descriptionElement = _this.element.querySelector("#description");
         _this.peopleElement = _this.element.querySelector("#people");

@@ -1,14 +1,14 @@
 import { AutoBind } from "../decorators/auto-bind.js";
 import { Component } from "./base-component.js";
 
-export class ProjectInput extends Component {
+export class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
   titleElement: HTMLInputElement;
   descriptionElement: HTMLInputElement;
   peopleElement: HTMLInputElement;
   submitButton: HTMLButtonElement;
 
   constructor() {
-    super("root", "project-input", "user-input");
+    super("root", "project-input", true, "user-input");
 
     this.titleElement = this.element.querySelector(
       "#title"
