@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>ProjectManager</title>
     <link rel="stylesheet" href="app.css" />
-    <script src="dist/app.js" defer></script>
+    <link rel="shortcut icon" href="#" />
+    <script type="module" src="dist/app.js"></script>
   </head>
   <body>
     <template id="project-input">
@@ -26,6 +27,7 @@
         <button type="submit">ADD PROJECT</button>
       </form>
     </template>
+
     <template id="single-project">
       <li></li>
     </template>
@@ -37,6 +39,6 @@
         <ul></ul>
       </section>
     </template>
-    <div id="app"></div>
+    <div id="root"></div>
   </body>
 </html>
